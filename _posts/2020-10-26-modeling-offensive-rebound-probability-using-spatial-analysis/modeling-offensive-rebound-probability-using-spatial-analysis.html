@@ -84,638 +84,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>My Portfolio: About Ryan</title>
+  <title>Modeling Offensive Rebound Probability using Spatial Analysis</title>
   
-  <meta property="description" itemprop="description" content=""/>
+  <meta property="description" itemprop="description" content="Creating a model to predict the probability of an offensive rebound using NBA player tracking data."/>
   
   
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2020-10-26"/>
+  <meta property="article:created" itemprop="dateCreated" content="2020-10-26"/>
+  <meta name="article:author" content="Ryan Flynn"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="My Portfolio: About Ryan"/>
+  <meta property="og:title" content="Modeling Offensive Rebound Probability using Spatial Analysis"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="Creating a model to predict the probability of an offensive rebound using NBA player tracking data."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="My Portfolio"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="My Portfolio: About Ryan"/>
-  <meta property="twitter:description" content=""/>
+  <meta property="twitter:title" content="Modeling Offensive Rebound Probability using Spatial Analysis"/>
+  <meta property="twitter:description" content="Creating a model to predict the probability of an offensive rebound using NBA player tracking data."/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["About Ryan"]},{"type":"character","attributes":{},"value":[""]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Modeling Offensive Rebound Probability using Spatial Analysis"]},{"type":"character","attributes":{},"value":["Creating a model to predict the probability of an offensive rebound using NBA player tracking data.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Ryan Flynn"]},{"type":"character","attributes":{},"value":["ryanflynn.netlify.app"]}]}]},{"type":"character","attributes":{},"value":["10-26-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["modeling-offensive-rebound-probability-using-spatial-analysis_files/anchor-4.2.2/anchor.min.js","modeling-offensive-rebound-probability-using-spatial-analysis_files/bowser-1.9.3/bowser.min.js","modeling-offensive-rebound-probability-using-spatial-analysis_files/distill-2.2.21/template.v2.js","modeling-offensive-rebound-probability-using-spatial-analysis_files/jquery-1.11.3/jquery.min.js","modeling-offensive-rebound-probability-using-spatial-analysis_files/play_55578.png","modeling-offensive-rebound-probability-using-spatial-analysis_files/popper-2.6.0/popper.min.js","modeling-offensive-rebound-probability-using-spatial-analysis_files/shooting_zone_example.png","modeling-offensive-rebound-probability-using-spatial-analysis_files/tippy-6.2.7/tippy-bundle.umd.min.js","modeling-offensive-rebound-probability-using-spatial-analysis_files/tippy-6.2.7/tippy-light-border.css","modeling-offensive-rebound-probability-using-spatial-analysis_files/tippy-6.2.7/tippy.css","modeling-offensive-rebound-probability-using-spatial-analysis_files/tippy-6.2.7/tippy.umd.min.js","modeling-offensive-rebound-probability-using-spatial-analysis_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-  
-  <script type="application/javascript">
-  
-    window.headroom_prevent_pin = false;
-  
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-  
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-  
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-  
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-  
-  <style type="text/css">
-  
-  /* Theme (user-documented overrideables for nav appearance) */
-  
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-  
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .distill-site-nav a:hover {
-    color: white;
-  }
-  
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-  
-  .distill-site-header {
-  
-  }
-  
-  .distill-site-footer {
-  
-  }
-  
-  
-  /* Site Header */
-  
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-  
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-  
-  
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-  
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-  
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-  
-  .distill-site-header .logo {
-    padding: 0;
-  }
-  
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-  
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-  
-  
-  
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-  
-  
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-  
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-  
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-  
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-dropdown-active {
-    display: block;
-  }
-  
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-  
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-  
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-  
-  /* Site Footer */
-  
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-  
-  /* Headroom */
-  
-  d-title {
-    padding-top: 6rem;
-  }
-  
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-  
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-  
-  .headroom--unpinned {
-    top: -100px;
-  }
-  
-  .headroom--pinned {
-    top: 0;
-  }
-  
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-  
-  </style>
-  
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-  
-  <script type="application/javascript">
-  
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-  
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-  
-  function createFuseIndex() {
-  
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-  
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-  
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-  
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-  
-    createFuseIndex()
-      .then(function(fuse) {
-  
-        // make search box visible
-        searchEl.classList.remove('hidden');
-  
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  
-  });
-  
-  </script>
-  
-  <style type="text/css">
-  
-  .nav-search {
-    font-size: x-small;
-  }
-  
-  /* Algolioa Autocomplete */
-  
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-  
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-  
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  </style>
-  
-  
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
   
@@ -2031,14 +1432,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
   
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="modeling-offensive-rebound-probability-using-spatial-analysis_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="modeling-offensive-rebound-probability-using-spatial-analysis_files/popper-2.6.0/popper.min.js"></script>
+  <link href="modeling-offensive-rebound-probability-using-spatial-analysis_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="modeling-offensive-rebound-probability-using-spatial-analysis_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="modeling-offensive-rebound-probability-using-spatial-analysis_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="modeling-offensive-rebound-probability-using-spatial-analysis_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="modeling-offensive-rebound-probability-using-spatial-analysis_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="modeling-offensive-rebound-probability-using-spatial-analysis_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="modeling-offensive-rebound-probability-using-spatial-analysis_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -2050,41 +1452,46 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"About Ryan","description":"","authors":[]}
+{"title":"Modeling Offensive Rebound Probability using Spatial Analysis","description":"Creating a model to predict the probability of an offensive rebound using NBA player tracking data.","authors":[{"author":"Ryan Flynn","authorURL":"ryanflynn.netlify.app","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-10-26T00:00:00.000-04:00","citationText":"Flynn, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">My Portfolio</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>About Ryan</h1>
+<h1>Modeling Offensive Rebound Probability using Spatial Analysis</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Creating a model to predict the probability of an offensive rebound using NBA player tracking data.</p></p>
 </div>
 
+<div class="d-byline">
+  Ryan Flynn ryanflynn.netlify.app 
+  
+<br/>10-26-2020
+</div>
 
 <div class="d-article">
-<p>My name is Ryan and I am currently a Senior at The Ohio State University in Columbus, Ohio. I am on track to graduate in May 2021 with a Bachelor of Science in Biology, a Bachelor of Arts in Spanish, and a Minor in Statistics. Although my degrees may be somewhat unrelated, I have taken a deep passion in Data Analytics, and on this site, I would like to share my experience and projects that I have completed in my free time. Many of my projects are sports based, as I love sports, and it is what got me into the field of data science, but I am constantly looking for more non-sports projects to work on.</p>
-<p>After graduation, I am looking to bring my unique and diverse skillset to a company that values my passion for data science, my intuition in statistics and data analysis, and my constant eagerness to learn and grow. When the opportunity best presents itself, I would eventually like to obtain a Masters degree in a Data Science or Statistics related field.</p>
-<p>While a large share of my coding experience is in R, I am also familiar with Python and SQL, and am looking forward to becoming well versed in other languages that can help enhance my skillset.</p>
-<p><embed src="images/profile.jfif" /></p>
+<h3 id="introduction">Introduction:</h3>
+<p>Recently, I was lucky enough to work on a project given by the Oklahoma City Thunder as part of the hiring process for an analyst internship. I unfortunately did not get the position, but learned a lot, and would like to share my experience of the model I built.</p>
+<h3 id="objective">Objective</h3>
+<p>The objective of the project was to build a model, using artificial NBA player tracking data, that predicts the probability of an offensive rebound given the positions of the players on the court at two different time points on a given play: when the ball was shot, and when the ball hit the rim.</p>
+<h3 id="approach-and-execution">Approach and Execution</h3>
+<p>The beginning of any project of this magnitude is to clean the data one is working with to ensure any errors and oddities are handled and to keep things organized. Using R, I decided to join together the play-by-play data with the location data and immediately filter out any made shots. Since the objective is to estimate probabilities of an offensive rebound, my model was trained based only on missed shots, in which a rebound occurred. Additionally, to deal with easier data manipulation, I shifted the points so that the rim, originally at (-41.75, 0), was at the origin (0,0). The big picture that I wanted to keep in mind throughout the project was that if I could predict where the ball was going to go based on where it was shot from, it would be much easier to predict who it was going to be rebounded by. In order to do this, I decided to divide the court into “zones” so I could analyze where the shooter was when the ball was shot, and where the rebounder was when the ball hit the rim. After a lot of thought on how to shape and size these zones, I decided to create the zones based on a polar coordinate system, so that they would be “wedge”-shaped, and equidistant from the rim from the left side of the court to the right side. The size of these zones was also important - I wanted to keep the zones small enough to get accurate, meaningful data on where the ball was most likely to go, but large enough that it was easily digestible and useful to a front office, coaching staff, or the players. It’s possible that more accurate, narrower estimates for ball locations could have been developed, but in my opinion, it was important to keep the zones large enough to strike a balance between precision and application. By making these zones using polar coordinates, I could plot each of the player coordinates and classify them into the zones they were located in.</p>
+<p>After the zones were created, I evaluated where rebounders were located at each different shot location. For example, in Figure 1 shown below, the black dots represent each time the ball was shot from the right wing (between 15 and 23.75 feet from the rim), and the red and blue dots represent where those shots were estimated. By doing this for each zone, I can generate rough estimates of probabilities of where an individual ball will land given that it was shot from a specific zone.</p>
+<figure>
+<img src="modeling-offensive-rebound-probability-using-spatial-analysis_files/shooting_zone_example.png" alt="Figure 1: Shooting Zone (black) vs. Rebounder Zone (red/blue)" /><figcaption><strong>Figure 1: Shooting Zone (black) vs. Rebounder Zone (red/blue)</strong></figcaption>
+</figure>
+<p>From here, I used a spatial analysis of Voronoi tessellations (Figure 2) to develop space “ownership” for each player around the court. In this figure, we can see the offensive players (blue) and defensive players (red) and their respective Voronoi tesselations. Each of these points represent the location of these players at the time the ball hit the rim, except for the shooter, whose location is the location at which he shot the ball. The polygons shown are the Voronoi tesselations, and represent the spatial ownership of each player. Each player owns 50% of the space between him and the other players around him, creating a boundary that represents the total space that we can realistically claim as their “own.” This decision of representing spatial ownership in this manner was under the assumption that since these are the “limits” to where the player can realistically get the ball, if the ball lands in a player’s Voronoi tesselation, they will be the one who rebounds it. This helped refine what before were probabilities that a ball landed in a specific zone into probabilities of a specific player getting the rebound. I then simply added the probabilities of each offensive player getting the rebound to develop a baseline cumulative offensive rebound probability. Using the play in Figure 2 as an example, the model projected that the offense had a 44.3% chance of securing a rebound, which is quite a bit higher than the average probability of an offensive rebound on any given play (~24%), This is likely due to the fact that since the shot was taken from the right corner, there is an increased likelihood that it lands on the left side of the court, and the offfense has the majority of the left side of the court “owned.” Additionally, shots from further out have an increased likelihood of resulting in a longer rebound, which would also mostly benefit the offense.</p>
+<figure>
+<img src="modeling-offensive-rebound-probability-using-spatial-analysis_files/play_55578.png" alt="Figure 2: Voronoi tesselations to represent spatial ownership" /><figcaption><strong>Figure 2: Voronoi tesselations to represent spatial ownership</strong></figcaption>
+</figure>
+<p>So where exactly does this 44.3% prediction come from? Based on the data collected from the shots taken from this specific zone, which I coded as r4RC (ring 4, right corner, where ring 4 includes anything from 15 to 23.75 feet from the hoop), the most likely zone for the ball to land is r2LC (ring 2, left corner, where ring 2 includes anything from 3 to 8 feet from the hoop), where 26.7% of the shots landed. It can be seen from the Voronoi tessellations that the offensive player controls the majority of zone r2LC. Using <a href="https://en.wikipedia.org/wiki/Shoelace_formula"><strong>Gauss’ formula</strong></a> for finding the area of irregular polygons, I found the area of each zone that is controlled by the players who make up that zone. In this example, the offensive player has control of 84.5% of zone r2LC, and 84.5% of 26.7% is awarded to that player. In other words, given the ball lands in zone r2LC (it has a 26.7% chance of doing so) then that offensive player has an 84.5% chance of securing the rebound. This is done for each player, in each zone, and all of their individual probabilities are added to formulate a single probability of an offensive rebound. Lastly, it’s important to note that this play originally had a 45.5% chance of being rebounded by the offense, but after adjusting for the rebounding ability of the players on the floor (where the defense had a slight advantage), it was bumped down to 44.3%.</p>
+<h3 id="final-adjustments">Final Adjustments</h3>
+<p>Lastly, I wanted to incorporate player skill, but I wanted to be careful in doing so: Based on some exploratory data analysis along with my own basketball intuition, I believe that the likelihood of securing an offensive rebound is primarily based on the location of the player (and the location of the other players). However, it is important to inform these baseline predictions with the additional data we have about the particular players on the floor. To do this, I used the total “offensive rebounding rate” (offensive rebounds divided by offensive rebound chances) of each of the offensive players, and total defensive rebounding rate of the defensive players. I then developed Z-scores based on the mean and standard deviation of the rebounding rates of a lineup to establish if the offensive or defensive team had an “advantage” given how they fare compared to an average offensive or defensive lineup. I used an exponential formula to create a small, but meaningful bump or detriment to each team’s probability of offensive rebounding to give a final estimate of a team’s probability of securing an offensive rebound on a given play. If we return to the play from Figure 2, we can see that this play originally had a 45.5% chance of being rebounded by the offense, but after adjusting for the rebounding ability of the players on the floor (where the defense had a slight advantage), it was bumped down to 44.3%.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

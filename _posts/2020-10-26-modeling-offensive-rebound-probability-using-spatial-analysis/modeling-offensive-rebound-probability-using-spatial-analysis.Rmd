@@ -1,0 +1,23 @@
+---
+title: "Modeling Offensive Rebound Probability using Spatial Analysis"
+description: |
+  A short description of the post.
+author:
+  - name: Nora Jones
+    url: https://example.com/norajones
+date: 01-13-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+### Let's hope this works!
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

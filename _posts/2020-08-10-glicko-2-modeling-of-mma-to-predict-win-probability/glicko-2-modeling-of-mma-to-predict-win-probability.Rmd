@@ -1,0 +1,51 @@
+---
+title: "Glicko-2 Modeling of MMA to Predict Win Probability"
+description: |
+  Using a variation of Elo, Glicko-2, to generate projected win probabilities and estimate true fighter rating.
+author:
+  - name: Ryan Flynn
+    url: "https://ryanflynn.netlify.app/about.html"
+date: 08-10-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+### Introduction
+
+For most of my life, my passion for sports has revolved around the same three sports: basketball, football, and baseball. In my mid-teens, I picked up a love for golf, both playing and watching, and in the past couple years, I have become enamored with mixed martial arts, specifically the UFC. This next project is my exploration of a fighter rating model that can evaluate the true rating of a fighter, and in turn, develop win probabilities for certain matchups.  
+
+### The Data
+
+I have to give some big thanks to those who have contributed really helpful resources to help gather MMA data. Since MMA is still a relatively small sport, it's much harder to gather data, especially non-professional data, on MMA fighters. However, a package called [**ufc.stats**](https://github.com/mtoto/ufc.stats) from [**Tamas Szilagyi**](https://github.com/mtoto)  scrapes data from the UFC site, and he does a great job of tidying the data into an easy-to-manage data frame in R. Lastly, I quickly realized that having just UFC data did not give me a large enough sample on most fighters. A user named [Montanaz0r](https://github.com/Montanaz0r) developed a great scraper of a site called [Sherdog](www.sherdog.com) which contains every recorded fight of any fighter. This was extremely helpful and took my model to new heights.  
+
+### Elo  
+
+When starting the foundation of the model, I thought an [Elo](https://en.wikipedia.org/wiki/Elo_rating_system) model would be appropriate, given the head-to-head nature of MMA. Elo is a rating system in which the pool of players (or in this case, fighters) maintain a constant average rating, which means after each match, the winning fighter has X amount of points added to their rating, and the loser has X amount of points subtracted from their rating. This number, X, is determined based on the relative win probabilities of the fighters. For example, if a fighter who has a 90% chance of winning wins, he/she won't receive many points, since they were expected to win easily. However, that means the fighter who lost, but only had a 10% chance of winning, won't receive a large deduction either, since they weren't at all likely to win. 
+
+Aforementioned above, I quickkly realized I had an issue with sample size. MMA is a sport where the scheduling style presents a very unique issue relative to other major sports. In most sports, each team plays the same amount of times (at least in the regular season), against a set schedule, and there is often a lot of overlap in these schedules. In the UFC (or any professional MMA promotion), a fighter will only have the opportunity to fight more if they win a lot. For this reason, we see many, many fighters who have less than 5 total fights in the UFC, which makes it very difficult to find an estimate of their true rating. However, after some digging, I was able to pull all of a fighter's matches, even from non-UFC bouts, which increased the average sample size tremendously. These non-UFC fights were given a slightly lesser weight, since the UFC is widely regarded as having the best talent of any MMA promotion. Since many of the fighters in other promotions are not UFC-caliber, I treated this similarly to how one may weigh priors of an NBA player's college games vs. their professional games. Nonetheless, it gave me some prior information to build off of, which not only helped me find a more confident estimate of a fighter's rating, but also fixed the problem of not having *any* estimate of a fighter's rating if it was their UFC debut.
+
+### Transition to Glicko-2
+
+After creating an iteration of this model that was based on this system, although it performed somewhat well, (RMSE = 0.15), there were some prevalent flaws that needed addressed. After doing some research, I found a system developed by Mark Glickman, a Statistics professor at Harvard University, called [Glicko-2](http://www.glicko.net/), which is a more complex variation of Elo. The main differentiating feature of Glicko-2 is it's use of what is called a **rating deviation (RD)**. A fighter's RD, which starts at a constant value, decreases as we learn more about the fighter and converge on an estimate of their true rating. When we don't have a large sample on a fighter, or when that sample is wildly inconsistent, and the RD is high, the win probability of a fight involving that fighter regresses to 50%. 
+
+Let me give an example of why this is so helpful, and how it dramatically helped improve my predictions:
+
+[**Jairzinho Rozenstruik**](https://www.sherdog.com/fighter/Jairzinho-Rozenstruik-102803), who had only 11 total fights under his belt (5 UFC fights) was set to fight [**Junior dos Santos**](https://www.sherdog.com/fighter/Junior-dos-Santos-17272) on August 15th, who had 29 total fights (22 UFC fights). Rozenstruik, a rising prospect, was a slight favorite (~58% implied probability) according to Vegas odds, despite his disadvantage in experience compared to dos Santos. My original Elo model had Rozenstruik at 38% to win, almost entirely due to the fact that Rozenstruik having so few fights did not allow him the opportunity to grow his rating. However, when I deployed my Glicko-2 model, it had Rozenstruik at 54% to win, almost right in line with the implied probability. This surprised me. I figured that although the Glicko-2 model should decrease my confidence in my prediction of dos Santos winning, it shouldn't change the direction, since all it is doing is using Rozenstruik's high RD to regress to 50%, and shouldn't take it over 50%. However, what I did not realize initially, was that the implementation of the RD has a snowball effect on the model. Since the points that are awarded to each fighter following a bout are based on their respective win probability, if the win probability projection is off, the point allocation is off as well. This means that in Rozenstruik's past fights, he likely was not getting enough credit for the wins he was accruing, or dos Santos was not being punished enough for his losses. So now, although Rozenstruik still has a high RD, the estimate of his rating is much more accurate in the Glicko-2 model since the projections of his previous fights were also more accurate.  
+
+Lastly, I used BFGS optimization to determine my initial parameters for the model, and afterwards, the model has performed with an RMSE of about 0.08, almost half of what it was under the Elo model.  
+
+### Threats to Validity and Future Enhancements  
+
+Although this Glicko-2 model fixed some of the flaws of the Elo model, there still can be many improvements. There are two major flaws that I am currently working on improving:  
+1. ***All wins and losses are treated equally.***  
+It goes without saying that not every win is the same. A first round knockout is certainly more impressive and more dominant than a 3-round split decision. Currently, the model does not take in differences in those outcomes. In the Elo model, I added an outcome adjustment that used a hierarchy of outcomes and assigned extra points to a fighter for the way in which they won, and took away extra points to a fighter for the way in which they lost. However, in the Glicko-2 model, this is much trickier, and although I briefly added a variation of this adjustment, it actually worsened my RMSE and log loss, so it has been removed until I am confident the adjustment is not adding noise to the model.  
+2. ***All non-UFC bouts are treated equally.***  
+Although I have a lesser weight on non-UFC bouts, there are plenty of professional MMA promotions, and some of them have much better talent than others. Bellator, for example, is well renowned, and a win in Bellator is certainly more impressive than a win in a much lesser known, but still professional, MMA promotion. However, this adjustment seems trickier, and although giving different weights to different promotions may help improve the model, I do not want to assign some arbitrary weight to promotions without a data-driven reason behind it.  
+
+### Shiny
+
+If any are interested, I have also developed a Shiny web app where the predictions from this model can be seen for upcoming UFC fights at (https://rflynn.shinyapps.io/ufc_app/).  
+
+
+

@@ -1,9 +1,16 @@
 ---
-title: "About this blog"
-description: |
-  Some additional details about the blog
+title: "About Ryan"
+description: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+My name is Ryan and I am currently a Senior at The Ohio State University in Columbus, Ohio. I am on track to graduate in May 2021 with a Bachelor of Science in Biology, a Bachelor of Arts in Spanish, and a Minor in Statistics. Although my degrees may be somewhat unrelated, I have taken a deep passion in Data Analytics, and on this site, I would like to share my experience and projects that I have completed in my free time. Many of my projects are sports based, as I love sports, and it is what got me into the field of data science, but I am constantly looking for more non-sports projects to work on.
+
+After graduation, I am looking to bring my unique and diverse skillset to a company that values my passion for data science, my intuition in statistics and data analysis, and my constant eagerness to learn and grow. When the opportunity best presents itself, I would eventually like to obtain a Masters degree in a Data Science or Statistics related field. 
+
+While a large share of my coding experience is in R, I am also familiar with Python and SQL, and am looking forward to becoming well versed in other languages that can help enhance my skillset. 
+
+![](images/profile.jfif)

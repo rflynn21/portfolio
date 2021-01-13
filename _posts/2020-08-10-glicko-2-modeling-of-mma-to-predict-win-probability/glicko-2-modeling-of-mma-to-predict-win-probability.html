@@ -84,638 +84,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>My Portfolio: About Ryan</title>
+  <title>Glicko-2 Modeling of MMA to Predict Win Probability</title>
   
-  <meta property="description" itemprop="description" content=""/>
+  <meta property="description" itemprop="description" content="Using a variation of Elo, Glicko-2, to generate projected win probabilities and estimate true fighter rating."/>
   
   
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2020-08-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2020-08-10"/>
+  <meta name="article:author" content="Ryan Flynn"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="My Portfolio: About Ryan"/>
+  <meta property="og:title" content="Glicko-2 Modeling of MMA to Predict Win Probability"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="Using a variation of Elo, Glicko-2, to generate projected win probabilities and estimate true fighter rating."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="My Portfolio"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="My Portfolio: About Ryan"/>
-  <meta property="twitter:description" content=""/>
+  <meta property="twitter:title" content="Glicko-2 Modeling of MMA to Predict Win Probability"/>
+  <meta property="twitter:description" content="Using a variation of Elo, Glicko-2, to generate projected win probabilities and estimate true fighter rating."/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["About Ryan"]},{"type":"character","attributes":{},"value":[""]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Glicko-2 Modeling of MMA to Predict Win Probability"]},{"type":"character","attributes":{},"value":["Using a variation of Elo, Glicko-2, to generate projected win probabilities and estimate true fighter rating.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Ryan Flynn"]},{"type":"character","attributes":{},"value":["https://ryanflynn.netlify.app/about.html"]}]}]},{"type":"character","attributes":{},"value":["08-10-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["glicko-2-modeling-of-mma-to-predict-win-probability_files/anchor-4.2.2/anchor.min.js","glicko-2-modeling-of-mma-to-predict-win-probability_files/bowser-1.9.3/bowser.min.js","glicko-2-modeling-of-mma-to-predict-win-probability_files/distill-2.2.21/template.v2.js","glicko-2-modeling-of-mma-to-predict-win-probability_files/jquery-1.11.3/jquery.min.js","glicko-2-modeling-of-mma-to-predict-win-probability_files/popper-2.6.0/popper.min.js","glicko-2-modeling-of-mma-to-predict-win-probability_files/tippy-6.2.7/tippy-bundle.umd.min.js","glicko-2-modeling-of-mma-to-predict-win-probability_files/tippy-6.2.7/tippy-light-border.css","glicko-2-modeling-of-mma-to-predict-win-probability_files/tippy-6.2.7/tippy.css","glicko-2-modeling-of-mma-to-predict-win-probability_files/tippy-6.2.7/tippy.umd.min.js","glicko-2-modeling-of-mma-to-predict-win-probability_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-  
-  <script type="application/javascript">
-  
-    window.headroom_prevent_pin = false;
-  
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-  
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-  
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-  
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-  
-  <style type="text/css">
-  
-  /* Theme (user-documented overrideables for nav appearance) */
-  
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-  
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .distill-site-nav a:hover {
-    color: white;
-  }
-  
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-  
-  .distill-site-header {
-  
-  }
-  
-  .distill-site-footer {
-  
-  }
-  
-  
-  /* Site Header */
-  
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-  
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-  
-  
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-  
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-  
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-  
-  .distill-site-header .logo {
-    padding: 0;
-  }
-  
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-  
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-  
-  
-  
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-  
-  
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-  
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-  
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-  
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-dropdown-active {
-    display: block;
-  }
-  
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-  
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-  
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-  
-  /* Site Footer */
-  
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-  
-  /* Headroom */
-  
-  d-title {
-    padding-top: 6rem;
-  }
-  
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-  
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-  
-  .headroom--unpinned {
-    top: -100px;
-  }
-  
-  .headroom--pinned {
-    top: 0;
-  }
-  
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-  
-  </style>
-  
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-  
-  <script type="application/javascript">
-  
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-  
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-  
-  function createFuseIndex() {
-  
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-  
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-  
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-  
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-  
-    createFuseIndex()
-      .then(function(fuse) {
-  
-        // make search box visible
-        searchEl.classList.remove('hidden');
-  
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  
-  });
-  
-  </script>
-  
-  <style type="text/css">
-  
-  .nav-search {
-    font-size: x-small;
-  }
-  
-  /* Algolioa Autocomplete */
-  
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-  
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-  
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  </style>
-  
-  
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
   
@@ -2031,14 +1432,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
   
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="glicko-2-modeling-of-mma-to-predict-win-probability_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="glicko-2-modeling-of-mma-to-predict-win-probability_files/popper-2.6.0/popper.min.js"></script>
+  <link href="glicko-2-modeling-of-mma-to-predict-win-probability_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="glicko-2-modeling-of-mma-to-predict-win-probability_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="glicko-2-modeling-of-mma-to-predict-win-probability_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="glicko-2-modeling-of-mma-to-predict-win-probability_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="glicko-2-modeling-of-mma-to-predict-win-probability_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="glicko-2-modeling-of-mma-to-predict-win-probability_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="glicko-2-modeling-of-mma-to-predict-win-probability_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -2050,41 +1452,49 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"About Ryan","description":"","authors":[]}
+{"title":"Glicko-2 Modeling of MMA to Predict Win Probability","description":"Using a variation of Elo, Glicko-2, to generate projected win probabilities and estimate true fighter rating.","authors":[{"author":"Ryan Flynn","authorURL":"https://ryanflynn.netlify.app/about.html","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-08-10T00:00:00.000-04:00","citationText":"Flynn, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">My Portfolio</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>About Ryan</h1>
+<h1>Glicko-2 Modeling of MMA to Predict Win Probability</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Using a variation of Elo, Glicko-2, to generate projected win probabilities and estimate true fighter rating.</p></p>
 </div>
 
+<div class="d-byline">
+  Ryan Flynn <a href="https://ryanflynn.netlify.app/about.html" class="uri">https://ryanflynn.netlify.app/about.html</a> 
+  
+<br/>08-10-2020
+</div>
 
 <div class="d-article">
-<p>My name is Ryan and I am currently a Senior at The Ohio State University in Columbus, Ohio. I am on track to graduate in May 2021 with a Bachelor of Science in Biology, a Bachelor of Arts in Spanish, and a Minor in Statistics. Although my degrees may be somewhat unrelated, I have taken a deep passion in Data Analytics, and on this site, I would like to share my experience and projects that I have completed in my free time. Many of my projects are sports based, as I love sports, and it is what got me into the field of data science, but I am constantly looking for more non-sports projects to work on.</p>
-<p>After graduation, I am looking to bring my unique and diverse skillset to a company that values my passion for data science, my intuition in statistics and data analysis, and my constant eagerness to learn and grow. When the opportunity best presents itself, I would eventually like to obtain a Masters degree in a Data Science or Statistics related field.</p>
-<p>While a large share of my coding experience is in R, I am also familiar with Python and SQL, and am looking forward to becoming well versed in other languages that can help enhance my skillset.</p>
-<p><embed src="images/profile.jfif" /></p>
+<h3 id="introduction">Introduction</h3>
+<p>For most of my life, my passion for sports has revolved around the same three sports: basketball, football, and baseball. In my mid-teens, I picked up a love for golf, both playing and watching, and in the past couple years, I have become enamored with mixed martial arts, specifically the UFC. This next project is my exploration of a fighter rating model that can evaluate the true rating of a fighter, and in turn, develop win probabilities for certain matchups.</p>
+<h3 id="the-data">The Data</h3>
+<p>I have to give some big thanks to those who have contributed really helpful resources to help gather MMA data. Since MMA is still a relatively small sport, it’s much harder to gather data, especially non-professional data, on MMA fighters. However, a package called <a href="https://github.com/mtoto/ufc.stats"><strong>ufc.stats</strong></a> from <a href="https://github.com/mtoto"><strong>Tamas Szilagyi</strong></a> scrapes data from the UFC site, and he does a great job of tidying the data into an easy-to-manage data frame in R. Lastly, I quickly realized that having just UFC data did not give me a large enough sample on most fighters. A user named <a href="https://github.com/Montanaz0r">Montanaz0r</a> developed a great scraper of a site called <a href="www.sherdog.com">Sherdog</a> which contains every recorded fight of any fighter. This was extremely helpful and took my model to new heights.</p>
+<h3 id="elo">Elo</h3>
+<p>When starting the foundation of the model, I thought an <a href="https://en.wikipedia.org/wiki/Elo_rating_system">Elo</a> model would be appropriate, given the head-to-head nature of MMA. Elo is a rating system in which the pool of players (or in this case, fighters) maintain a constant average rating, which means after each match, the winning fighter has X amount of points added to their rating, and the loser has X amount of points subtracted from their rating. This number, X, is determined based on the relative win probabilities of the fighters. For example, if a fighter who has a 90% chance of winning wins, he/she won’t receive many points, since they were expected to win easily. However, that means the fighter who lost, but only had a 10% chance of winning, won’t receive a large deduction either, since they weren’t at all likely to win.</p>
+<p>Aforementioned above, I quickkly realized I had an issue with sample size. MMA is a sport where the scheduling style presents a very unique issue relative to other major sports. In most sports, each team plays the same amount of times (at least in the regular season), against a set schedule, and there is often a lot of overlap in these schedules. In the UFC (or any professional MMA promotion), a fighter will only have the opportunity to fight more if they win a lot. For this reason, we see many, many fighters who have less than 5 total fights in the UFC, which makes it very difficult to find an estimate of their true rating. However, after some digging, I was able to pull all of a fighter’s matches, even from non-UFC bouts, which increased the average sample size tremendously. These non-UFC fights were given a slightly lesser weight, since the UFC is widely regarded as having the best talent of any MMA promotion. Since many of the fighters in other promotions are not UFC-caliber, I treated this similarly to how one may weigh priors of an NBA player’s college games vs. their professional games. Nonetheless, it gave me some prior information to build off of, which not only helped me find a more confident estimate of a fighter’s rating, but also fixed the problem of not having <em>any</em> estimate of a fighter’s rating if it was their UFC debut.</p>
+<h3 id="transition-to-glicko-2">Transition to Glicko-2</h3>
+<p>After creating an iteration of this model that was based on this system, although it performed somewhat well, (RMSE = 0.15), there were some prevalent flaws that needed addressed. After doing some research, I found a system developed by Mark Glickman, a Statistics professor at Harvard University, called <a href="http://www.glicko.net/">Glicko-2</a>, which is a more complex variation of Elo. The main differentiating feature of Glicko-2 is it’s use of what is called a <strong>rating deviation (RD)</strong>. A fighter’s RD, which starts at a constant value, decreases as we learn more about the fighter and converge on an estimate of their true rating. When we don’t have a large sample on a fighter, or when that sample is wildly inconsistent, and the RD is high, the win probability of a fight involving that fighter regresses to 50%.</p>
+<p>Let me give an example of why this is so helpful, and how it dramatically helped improve my predictions:</p>
+<p><a href="https://www.sherdog.com/fighter/Jairzinho-Rozenstruik-102803"><strong>Jairzinho Rozenstruik</strong></a>, who had only 11 total fights under his belt (5 UFC fights) was set to fight <a href="https://www.sherdog.com/fighter/Junior-dos-Santos-17272"><strong>Junior dos Santos</strong></a> on August 15th, who had 29 total fights (22 UFC fights). Rozenstruik, a rising prospect, was a slight favorite (~58% implied probability) according to Vegas odds, despite his disadvantage in experience compared to dos Santos. My original Elo model had Rozenstruik at 38% to win, almost entirely due to the fact that Rozenstruik having so few fights did not allow him the opportunity to grow his rating. However, when I deployed my Glicko-2 model, it had Rozenstruik at 54% to win, almost right in line with the implied probability. This surprised me. I figured that although the Glicko-2 model should decrease my confidence in my prediction of dos Santos winning, it shouldn’t change the direction, since all it is doing is using Rozenstruik’s high RD to regress to 50%, and shouldn’t take it over 50%. However, what I did not realize initially, was that the implementation of the RD has a snowball effect on the model. Since the points that are awarded to each fighter following a bout are based on their respective win probability, if the win probability projection is off, the point allocation is off as well. This means that in Rozenstruik’s past fights, he likely was not getting enough credit for the wins he was accruing, or dos Santos was not being punished enough for his losses. So now, although Rozenstruik still has a high RD, the estimate of his rating is much more accurate in the Glicko-2 model since the projections of his previous fights were also more accurate.</p>
+<p>Lastly, I used BFGS optimization to determine my initial parameters for the model, and afterwards, the model has performed with an RMSE of about 0.08, almost half of what it was under the Elo model.</p>
+<h3 id="threats-to-validity-and-future-enhancements">Threats to Validity and Future Enhancements</h3>
+<p>Although this Glicko-2 model fixed some of the flaws of the Elo model, there still can be many improvements. There are two major flaws that I am currently working on improving:<br />
+1. <strong><em>All wins and losses are treated equally.</em></strong><br />
+It goes without saying that not every win is the same. A first round knockout is certainly more impressive and more dominant than a 3-round split decision. Currently, the model does not take in differences in those outcomes. In the Elo model, I added an outcome adjustment that used a hierarchy of outcomes and assigned extra points to a fighter for the way in which they won, and took away extra points to a fighter for the way in which they lost. However, in the Glicko-2 model, this is much trickier, and although I briefly added a variation of this adjustment, it actually worsened my RMSE and log loss, so it has been removed until I am confident the adjustment is not adding noise to the model.<br />
+2. <strong><em>All non-UFC bouts are treated equally.</em></strong><br />
+Although I have a lesser weight on non-UFC bouts, there are plenty of professional MMA promotions, and some of them have much better talent than others. Bellator, for example, is well renowned, and a win in Bellator is certainly more impressive than a win in a much lesser known, but still professional, MMA promotion. However, this adjustment seems trickier, and although giving different weights to different promotions may help improve the model, I do not want to assign some arbitrary weight to promotions without a data-driven reason behind it.</p>
+<h3 id="shiny">Shiny</h3>
+<p>If any are interested, I have also developed a Shiny web app where the predictions from this model can be seen for upcoming UFC fights at (<a href="https://rflynn.shinyapps.io/ufc_app/" class="uri">https://rflynn.shinyapps.io/ufc_app/</a>).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

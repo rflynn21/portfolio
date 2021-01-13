@@ -1,0 +1,112 @@
+---
+title: "Whose Interceptions Cost Their Team the Most? (Tutorial)"
+description: |
+  In this post, I thought I would give an introduction into (nflfastR) and its potential applications through a simple example in R.
+author:
+  - name: Ryan Flynn
+    url: https://ryanflynn.netlify.app/about.html
+date: 01-03-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+It goes without saying that in the NFL, all interceptions are not created equal. Some interceptions cost their teams much more in terms of their chances of winning the game. For example, rookie Cincinnati Bengals QB [**Joe Burrow**](https://www.pro-football-reference.com/players/B/BurrJo01.htm) threw an interception in week 6 against the Indianapolis Colts as the Bengals were down by 4 at the 35-yard line with just 46 seconds left, and a chance to go score to win the game. This interception sealed the fate of the Bengals, and cost the team much more than if the interception had come, say, in the 1st quarter. Using the phenomenal `nflfastR` package, we can quantify just how much these interceptions cost, and which quarterbacks have cost their teams the most overall with their interceptions.  
+
+If you haven't already, go ahead and install, then load the `nflfastR` package using the functions:
+
+```{r}
+# install.packages('nflfastR')
+library(nflfastR)
+```
+
+Additionally, my code is generally pretty reliant on `tidyverse`, so let's load that as well:  
+
+```{r}
+library(tidyverse)
+```
+
+Next, we need to load in the play-by-play data, which is what makes `nflfastR` so great. There are ways to read in the data using the `nflfastR` package itself, but the faster way of doing it is by reading in the RDS files straight from the GitHub repository. In this case, we are reading in the 2020 play-by-play data, but you can easily read any other available year by changing the 2020 at the end of the string to whichever year you want.
+
+```{r}
+pbp <- readRDS(url('https://raw.githubusercontent.com/guga31bb/nflfastR-data/master/data/play_by_play_2020.rds'))
+```
+
+In these few lines, we are reading in the entire 2020 NFL schedule, but we want to filter out any games that haven't been played yet:
+
+```{r}
+schedule <- fast_scraper_schedules(2020)
+completed_games <- schedule %>%
+  filter(!is.na(home_result))
+```
+
+Next, it may not make sense just yet, but we will come back to it. These lines create a dataframe called `colors` that contains the color codes for every team so we can make our plots prettier. 
+
+```{r}
+colors <- teams_colors_logos
+DF = data.frame(table(unlist(completed_games)))
+
+colors <- colors %>%
+  left_join(DF, by = c("team_abbr" = "Var1")) %>%
+  rename("games_played" = "Freq")
+```
+
+Okay - this may look like a lot, so let's walk through it. We are making a new dataframe, based on our `pbp` dataframe, called `ints`.
+- The first line is a filter since we only care about plays that were interceptiions. 
+- This second line is a housekeeping line. The `pbp` data frame has 340 columns worth of data. We only really care about a few, so let's remove all the stuff we don't need, so it's easier to see. 
+- This line groups all the rows by whoever the passer is, meaning, for example, any time `passer_player_name` == "Baker Mayfield", it all gets counted as one single group. 
+- This line uses the `row_number()` function to count each interception. Mayfield's third interception of the season is listed as `3` under the column `n`
+- Lastly, we are joining the `colors` data frame to this new `ints` data frame on the basis of the team. So since any of Mayfield's plays will have "CLE" listed as the 'posteam' (possessing team), this will match with wherever "CLE" is listed in the `team_abbr` column of `colors`. 
+
+```{r}
+ints <- pbp %>%
+  filter(interception == 1) %>%
+  select(posteam, passer_player_name, wpa, week, defteam) %>%
+  group_by(passer_player_name) %>%
+  mutate(n = row_number()) %>%
+  left_join(colors, by = c("posteam" = "team_abbr"))
+```
+
+Now, let's take a look at what we created:
+
+```{r}
+ints %>%
+  arrange(wpa)
+```
+So, since we sorted in descending order by `wpa` which stands for Win Probability Added, we see the interceptions that cost the most in terms of win probability at the top. The Joe Burrow interception from week 6 that we referenced earlier cost his team -32% win probability. If we dive deeper, and go back to the `pbp` dataframe, we can see that the Bengals win probability before the interception was 34.5%, and afterwards was just 2.2%.  
+
+```{r, echo = FALSE}
+pbp %>%
+  filter(posteam == "CIN", interception == 1, week == 6) %>%
+  select(posteam, defteam, passer_player_name, week, away_wp, away_wp_post)  
+```
+
+So, we have already found which individual interceptions cost their team the most in win probability, but now let's find which QBs have cost their teams the most cumulative win probability:    
+  
+```{r}
+cumulative_ints <- ints %>%
+  group_by(passer_player_name) %>%
+  summarize(posteam = posteam, n_int = max(n), cumulative_wpa = sum(wpa), team_color, team_color2, team_color3, .groups = "keep") %>%
+  filter(n_int > 5) %>%
+  slice(1)
+cumulative_ints %>%
+  arrange(cumulative_wpa)
+```
+It looks like Falcons QB [Matt Ryan](https://www.pro-football-reference.com/players/R/RyanMa00.htm) has caused his team the most overall from his interceptions. This is impressive considering Ryan, with only 11 interceptions, has cost more total win probability than players with more interceptions, like Russell Wilson or Carson Wentz. This does not come as a surprise though, seeing as we found earlier that Ryan also has the most costly interception of the season, a week 14 interception against the Chargers that caused the Falcons to go from 84.4% to win, to just 31%.  
+
+To put the finishing touches on this analysis, let's show a plot of this data we found that helps us more easily visualize where each QB stands. The following code uses `ggplot2` to generate a plot, uses the `colors` data frame from earlier to make each QB's point their team color, and filters any QB (or non-QB!) with 5 or fewer interceptions. The size of the dot represents the number of interceptions. 
+
+```{r}
+# function for maintaining order in ggplot
+cumulative_ints$passer_player_name <- 
+  factor(cumulative_ints$passer_player_name, levels = cumulative_ints$passer_player_name[order(cumulative_ints$cumulative_wpa)])
+
+ggplot(data = cumulative_ints,
+       aes(x = passer_player_name, y = cumulative_wpa, size = n_int)) +
+  geom_point(color = cumulative_ints$team_color) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.position = "none") +
+  labs(x = "", y = "Cumulative Win Probability Added", title = "Which QB's Interceptions Cost Their Team the Most?")
+
+```
+

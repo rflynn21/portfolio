@@ -84,638 +84,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>My Portfolio: About Ryan</title>
+  <title>Whose Interceptions Cost Their Team the Most? (Tutorial)</title>
   
-  <meta property="description" itemprop="description" content=""/>
+  <meta property="description" itemprop="description" content="In this post, I thought I would give an introduction into (nflfastR) and its potential applications through a simple example in R."/>
   
   
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-01-03"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-01-03"/>
+  <meta name="article:author" content="Ryan Flynn"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="My Portfolio: About Ryan"/>
+  <meta property="og:title" content="Whose Interceptions Cost Their Team the Most? (Tutorial)"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="In this post, I thought I would give an introduction into (nflfastR) and its potential applications through a simple example in R."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="My Portfolio"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="My Portfolio: About Ryan"/>
-  <meta property="twitter:description" content=""/>
+  <meta property="twitter:title" content="Whose Interceptions Cost Their Team the Most? (Tutorial)"/>
+  <meta property="twitter:description" content="In this post, I thought I would give an introduction into (nflfastR) and its potential applications through a simple example in R."/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["About Ryan"]},{"type":"character","attributes":{},"value":[""]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Whose Interceptions Cost Their Team the Most? (Tutorial)"]},{"type":"character","attributes":{},"value":["In this post, I thought I would give an introduction into (nflfastR) and its potential applications through a simple example in R.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Ryan Flynn"]},{"type":"character","attributes":{},"value":["https://ryanflynn.netlify.app/about.html"]}]}]},{"type":"character","attributes":{},"value":["01-03-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["whose-interceptions-cost-their-team-the-most-tutorial_files/anchor-4.2.2/anchor.min.js","whose-interceptions-cost-their-team-the-most-tutorial_files/bowser-1.9.3/bowser.min.js","whose-interceptions-cost-their-team-the-most-tutorial_files/distill-2.2.21/template.v2.js","whose-interceptions-cost-their-team-the-most-tutorial_files/figure-html5/unnamed-chunk-10-1.png","whose-interceptions-cost-their-team-the-most-tutorial_files/jquery-1.11.3/jquery.min.js","whose-interceptions-cost-their-team-the-most-tutorial_files/popper-2.6.0/popper.min.js","whose-interceptions-cost-their-team-the-most-tutorial_files/tippy-6.2.7/tippy-bundle.umd.min.js","whose-interceptions-cost-their-team-the-most-tutorial_files/tippy-6.2.7/tippy-light-border.css","whose-interceptions-cost-their-team-the-most-tutorial_files/tippy-6.2.7/tippy.css","whose-interceptions-cost-their-team-the-most-tutorial_files/tippy-6.2.7/tippy.umd.min.js","whose-interceptions-cost-their-team-the-most-tutorial_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-  
-  <script type="application/javascript">
-  
-    window.headroom_prevent_pin = false;
-  
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-  
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-  
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-  
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-  
-  <style type="text/css">
-  
-  /* Theme (user-documented overrideables for nav appearance) */
-  
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-  
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .distill-site-nav a:hover {
-    color: white;
-  }
-  
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-  
-  .distill-site-header {
-  
-  }
-  
-  .distill-site-footer {
-  
-  }
-  
-  
-  /* Site Header */
-  
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-  
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-  
-  
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-  
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-  
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-  
-  .distill-site-header .logo {
-    padding: 0;
-  }
-  
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-  
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-  
-  
-  
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-  
-  
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-  
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-  
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-  
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-dropdown-active {
-    display: block;
-  }
-  
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-  
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-  
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-  
-  /* Site Footer */
-  
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-  
-  /* Headroom */
-  
-  d-title {
-    padding-top: 6rem;
-  }
-  
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-  
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-  
-  .headroom--unpinned {
-    top: -100px;
-  }
-  
-  .headroom--pinned {
-    top: 0;
-  }
-  
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-  
-  </style>
-  
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-  
-  <script type="application/javascript">
-  
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-  
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-  
-  function createFuseIndex() {
-  
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-  
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-  
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-  
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-  
-    createFuseIndex()
-      .then(function(fuse) {
-  
-        // make search box visible
-        searchEl.classList.remove('hidden');
-  
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  
-  });
-  
-  </script>
-  
-  <style type="text/css">
-  
-  .nav-search {
-    font-size: x-small;
-  }
-  
-  /* Algolioa Autocomplete */
-  
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-  
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-  
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-  
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  </style>
-  
-  
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
   
@@ -2031,14 +1432,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
   
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="whose-interceptions-cost-their-team-the-most-tutorial_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="whose-interceptions-cost-their-team-the-most-tutorial_files/popper-2.6.0/popper.min.js"></script>
+  <link href="whose-interceptions-cost-their-team-the-most-tutorial_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="whose-interceptions-cost-their-team-the-most-tutorial_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="whose-interceptions-cost-their-team-the-most-tutorial_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="whose-interceptions-cost-their-team-the-most-tutorial_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="whose-interceptions-cost-their-team-the-most-tutorial_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="whose-interceptions-cost-their-team-the-most-tutorial_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="whose-interceptions-cost-their-team-the-most-tutorial_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -2050,42 +1452,166 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"About Ryan","description":"","authors":[]}
+{"title":"Whose Interceptions Cost Their Team the Most? (Tutorial)","description":"In this post, I thought I would give an introduction into (nflfastR) and its potential applications through a simple example in R.","authors":[{"author":"Ryan Flynn","authorURL":"https://ryanflynn.netlify.app/about.html","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-03T00:00:00.000-05:00","citationText":"Flynn, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">My Portfolio</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>About Ryan</h1>
+<h1>Whose Interceptions Cost Their Team the Most? (Tutorial)</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>In this post, I thought I would give an introduction into (nflfastR) and its potential applications through a simple example in R.</p></p>
 </div>
 
+<div class="d-byline">
+  Ryan Flynn <a href="https://ryanflynn.netlify.app/about.html" class="uri">https://ryanflynn.netlify.app/about.html</a> 
+  
+<br/>01-03-2021
+</div>
 
 <div class="d-article">
-<p>My name is Ryan and I am currently a Senior at The Ohio State University in Columbus, Ohio. I am on track to graduate in May 2021 with a Bachelor of Science in Biology, a Bachelor of Arts in Spanish, and a Minor in Statistics. Although my degrees may be somewhat unrelated, I have taken a deep passion in Data Analytics, and on this site, I would like to share my experience and projects that I have completed in my free time. Many of my projects are sports based, as I love sports, and it is what got me into the field of data science, but I am constantly looking for more non-sports projects to work on.</p>
-<p>After graduation, I am looking to bring my unique and diverse skillset to a company that values my passion for data science, my intuition in statistics and data analysis, and my constant eagerness to learn and grow. When the opportunity best presents itself, I would eventually like to obtain a Masters degree in a Data Science or Statistics related field.</p>
-<p>While a large share of my coding experience is in R, I am also familiar with Python and SQL, and am looking forward to becoming well versed in other languages that can help enhance my skillset.</p>
-<p><embed src="images/profile.jfif" /></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>It goes without saying that in the NFL, all interceptions are not created equal. Some interceptions cost their teams much more in terms of their chances of winning the game. For example, rookie Cincinnati Bengals QB <a href="https://www.pro-football-reference.com/players/B/BurrJo01.htm"><strong>Joe Burrow</strong></a> threw an interception in week 6 against the Indianapolis Colts as the Bengals were down by 4 at the 35-yard line with just 46 seconds left, and a chance to go score to win the game. This interception sealed the fate of the Bengals, and cost the team much more than if the interception had come, say, in the 1st quarter. Using the phenomenal <code>nflfastR</code> package, we can quantify just how much these interceptions cost, and which quarterbacks have cost their teams the most overall with their interceptions.</p>
+<p>If you haven’t already, go ahead and install, then load the <code>nflfastR</code> package using the functions:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># install.packages('nflfastR')</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://mrcaseb.github.io/nflfastR/'>nflfastR</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Additionally, my code is generally pretty reliant on <code>tidyverse</code>, so let’s load that as well:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Next, we need to load in the play-by-play data, which is what makes <code>nflfastR</code> so great. There are ways to read in the data using the <code>nflfastR</code> package itself, but the faster way of doing it is by reading in the RDS files straight from the GitHub repository. In this case, we are reading in the 2020 play-by-play data, but you can easily read any other available year by changing the 2020 at the end of the string to whichever year you want.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pbp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readRDS.html'>readRDS</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/connections.html'>url</a></span><span class='op'>(</span><span class='st'>'https://raw.githubusercontent.com/guga31bb/nflfastR-data/master/data/play_by_play_2020.rds'</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>In these few lines, we are reading in the entire 2020 NFL schedule, but we want to filter out any games that haven’t been played yet:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>schedule</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://www.nflfastr.com//reference/fast_scraper_schedules.html'>fast_scraper_schedules</a></span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
+<span class='va'>completed_games</span> <span class='op'>&lt;-</span> <span class='va'>schedule</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>home_result</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Next, it may not make sense just yet, but we will come back to it. These lines create a dataframe called <code>colors</code> that contains the color codes for every team so we can make our plots prettier.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>colors</span> <span class='op'>&lt;-</span> <span class='va'>teams_colors_logos</span>
+<span class='va'>DF</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='va'>completed_games</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>colors</span> <span class='op'>&lt;-</span> <span class='va'>colors</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>DF</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"team_abbr"</span> <span class='op'>=</span> <span class='st'>"Var1"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>rename</span><span class='op'>(</span><span class='st'>"games_played"</span> <span class='op'>=</span> <span class='st'>"Freq"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Okay - this may look like a lot, so let’s walk through it. We are making a new dataframe, based on our <code>pbp</code> dataframe, called <code>ints</code>. - The first line is a filter since we only care about plays that were interceptiions. - This second line is a housekeeping line. The <code>pbp</code> data frame has 340 columns worth of data. We only really care about a few, so let’s remove all the stuff we don’t need, so it’s easier to see. - This line groups all the rows by whoever the passer is, meaning, for example, any time <code>passer_player_name</code> == “Baker Mayfield”, it all gets counted as one single group. - This line uses the <code>row_number()</code> function to count each interception. Mayfield’s third interception of the season is listed as <code>3</code> under the column <code>n</code> - Lastly, we are joining the <code>colors</code> data frame to this new <code>ints</code> data frame on the basis of the team. So since any of Mayfield’s plays will have “CLE” listed as the ‘posteam’ (possessing team), this will match with wherever “CLE” is listed in the <code>team_abbr</code> column of <code>colors</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ints</span> <span class='op'>&lt;-</span> <span class='va'>pbp</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>interception</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>posteam</span>, <span class='va'>passer_player_name</span>, <span class='va'>wpa</span>, <span class='va'>week</span>, <span class='va'>defteam</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>passer_player_name</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'>row_number</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>colors</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"posteam"</span> <span class='op'>=</span> <span class='st'>"team_abbr"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Now, let’s take a look at what we created:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ints</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>wpa</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 403 x 16
+# Groups:   passer_player_name [65]
+   posteam passer_player_n~    wpa  week defteam     n team_name
+   &lt;chr&gt;   &lt;chr&gt;             &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;    
+ 1 ATL     M.Ryan           -0.534    14 LAC        11 Atlanta ~
+ 2 LV      M.Mariota        -0.531    15 LAC         1 Las Vega~
+ 3 LAC     J.Herbert        -0.489    14 ATL        10 Los Ange~
+ 4 CIN     J.Burrow         -0.397     1 LAC         1 Cincinna~
+ 5 SEA     R.Wilson         -0.335     7 ARI         4 Seattle ~
+ 6 ATL     M.Ryan           -0.328     3 CHI         2 Atlanta ~
+ 7 CIN     J.Burrow         -0.323     6 IND         4 Cincinna~
+ 8 ARI     C.Streveler      -0.296    17 LA          1 Arizona ~
+ 9 DAL     A.Dalton         -0.294    17 NYG         8 Dallas C~
+10 SEA     R.Wilson         -0.293    18 LA         14 Seattle ~
+# ... with 393 more rows, and 9 more variables: team_id &lt;chr&gt;,
+#   team_nick &lt;chr&gt;, team_color &lt;chr&gt;, team_color2 &lt;chr&gt;,
+#   team_color3 &lt;chr&gt;, team_color4 &lt;chr&gt;, team_logo_wikipedia &lt;chr&gt;,
+#   team_logo_espn &lt;chr&gt;, games_played &lt;int&gt;</code></pre>
+</div>
+<p>So, since we sorted in descending order by <code>wpa</code> which stands for Win Probability Added, we see the interceptions that cost the most in terms of win probability at the top. The Joe Burrow interception from week 6 that we referenced earlier cost his team -32% win probability. If we dive deeper, and go back to the <code>pbp</code> dataframe, we can see that the Bengals win probability before the interception was 34.5%, and afterwards was just 2.2%.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 1 x 6
+  posteam defteam passer_player_name  week away_wp away_wp_post
+  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;              &lt;int&gt;   &lt;dbl&gt;        &lt;dbl&gt;
+1 CIN     IND     J.Burrow               6   0.345       0.0221</code></pre>
+</div>
+<p>So, we have already found which individual interceptions cost their team the most in win probability, but now let’s find which QBs have cost their teams the most cumulative win probability:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cumulative_ints</span> <span class='op'>&lt;-</span> <span class='va'>ints</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>passer_player_name</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>posteam <span class='op'>=</span> <span class='va'>posteam</span>, n_int <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>, cumulative_wpa <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>wpa</span><span class='op'>)</span>, <span class='va'>team_color</span>, <span class='va'>team_color2</span>, <span class='va'>team_color3</span>, .groups <span class='op'>=</span> <span class='st'>"keep"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>n_int</span> <span class='op'>&gt;</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>cumulative_ints</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>cumulative_wpa</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 32 x 7
+# Groups:   passer_player_name [32]
+   passer_player_n~ posteam n_int cumulative_wpa team_color
+   &lt;chr&gt;            &lt;chr&gt;   &lt;int&gt;          &lt;dbl&gt; &lt;chr&gt;     
+ 1 M.Ryan           ATL        11          -1.71 #a71930   
+ 2 R.Wilson         SEA        14          -1.65 #002244   
+ 3 K.Murray         ARI        12          -1.53 #97233f   
+ 4 C.Wentz          PHI        15          -1.52 #004953   
+ 5 J.Goff           LA         13          -1.45 #002244   
+ 6 N.Mullens        SF         12          -1.40 #aa0000   
+ 7 K.Cousins        MIN        13          -1.34 #4f2683   
+ 8 A.Smith          WAS         8          -1.32 #773141   
+ 9 D.Jones          NYG        10          -1.31 #0b2265   
+10 B.Roethlisberger PIT        14          -1.24 #000000   
+# ... with 22 more rows, and 2 more variables: team_color2 &lt;chr&gt;,
+#   team_color3 &lt;chr&gt;</code></pre>
+</div>
+<p>It looks like Falcons QB <a href="https://www.pro-football-reference.com/players/R/RyanMa00.htm">Matt Ryan</a> has caused his team the most overall from his interceptions. This is impressive considering Ryan, with only 11 interceptions, has cost more total win probability than players with more interceptions, like Russell Wilson or Carson Wentz. This does not come as a surprise though, seeing as we found earlier that Ryan also has the most costly interception of the season, a week 14 interception against the Chargers that caused the Falcons to go from 84.4% to win, to just 31%.</p>
+<p>To put the finishing touches on this analysis, let’s show a plot of this data we found that helps us more easily visualize where each QB stands. The following code uses <code>ggplot2</code> to generate a plot, uses the <code>colors</code> data frame from earlier to make each QB’s point their team color, and filters any QB (or non-QB!) with 5 or fewer interceptions. The size of the dot represents the number of interceptions.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># function for maintaining order in ggplot</span>
+<span class='va'>cumulative_ints</span><span class='op'>$</span><span class='va'>passer_player_name</span> <span class='op'>&lt;-</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cumulative_ints</span><span class='op'>$</span><span class='va'>passer_player_name</span>, levels <span class='op'>=</span> <span class='va'>cumulative_ints</span><span class='op'>$</span><span class='va'>passer_player_name</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span><span class='op'>(</span><span class='va'>cumulative_ints</span><span class='op'>$</span><span class='va'>cumulative_wpa</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+
+<span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>cumulative_ints</span>,
+       <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>passer_player_name</span>, y <span class='op'>=</span> <span class='va'>cumulative_wpa</span>, size <span class='op'>=</span> <span class='va'>n_int</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>cumulative_ints</span><span class='op'>$</span><span class='va'>team_color</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>angle <span class='op'>=</span> <span class='fl'>90</span>, hjust <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>, legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>""</span>, y <span class='op'>=</span> <span class='st'>"Cumulative Win Probability Added"</span>, title <span class='op'>=</span> <span class='st'>"Which QB's Interceptions Cost Their Team the Most?"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="whose-interceptions-cost-their-team-the-most-tutorial_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

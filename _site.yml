@@ -1,7 +1,7 @@
 name: "portfolio"
 title: "Ryan Flynn"
 description: |
-  My Portfolio
+  Ryan Flynn
 output_dir: "_site"
 navbar:
   right:

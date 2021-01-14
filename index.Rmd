@@ -1,5 +1,5 @@
 ---
-title: "My Projects"
+title: "Projects"
 site: distill::distill_website
 listing: posts
 ---

@@ -45,7 +45,7 @@ Although I have a lesser weight on non-UFC bouts, there are plenty of profession
 
 ### Shiny
 
-If any are interested, I have also developed a Shiny web app where the predictions from this model can be seen for upcoming UFC fights at (https://rflynn.shinyapps.io/ufc_app/).  
+If any are interested, I have also developed a Shiny web app where the predictions from this model can be seen for upcoming UFC fights at [**this link**](https://rflynn.shinyapps.io/ufc_app/).  
 
 
 

@@ -42,7 +42,7 @@ The next plot is a visual extension of the "Executive Orders" spot on the inputs
 
 Lastly, the State Model tab shows a projection of how the next 50 days (from May 1st) will look in a state based on the state-specific parameters. The model uses a set of parameters estimated using ordinary differential equations (ODE). ODE based models have often been used for [epidemiological estimation](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology) or even to evaluate [changes in species concentration](https://www.sciencedirect.com/science/article/pii/B9780128036976000059). This specific model was developed by Romik Ghosh.  
 
-**The web app can be viewed at: (https://rflynn.shinyapps.io/covid-19/)**
+**The web app can be viewed: [here](https://rflynn.shinyapps.io/covid-19/)**
 
 ### NOTE:
 The package used for this model was created for academic purposes, and has not been updated by the creator since May 4. All COVID-19 data beyond May 4 is not viewable in the web app.
